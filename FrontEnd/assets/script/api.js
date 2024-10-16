@@ -126,7 +126,7 @@ const formTitre = document.getElementById("formTitre");
 const categorie = document.getElementById("category");
 const inputPhotos = document.getElementById("inputPhoto");
 
-function checkFormCompletion() {
+function activeValidation() {
     if (formTitre.value && inputPhotos.files[0] && categorie.value) {
         boutonValidation.style.backgroundColor = "#1D6154";
     } else {
@@ -134,9 +134,9 @@ function checkFormCompletion() {
     }
 }
 
-formTitre.addEventListener("input", checkFormCompletion);  
-categorie.addEventListener("change", checkFormCompletion); 
-inputPhotos.addEventListener("change", checkFormCompletion);
+formTitre.addEventListener("input", activeValidation);  
+categorie.addEventListener("change", activeValidation); 
+inputPhotos.addEventListener("change", activeValidation);
 
 
 boutonValidation.addEventListener("click", async function (event) {
@@ -168,6 +168,7 @@ boutonValidation.addEventListener("click", async function (event) {
             const data = await response.json();
 
             recupWork();
+            photoModale();
             modale2.style.display = 'none';
             sousModale.style.display = "none";
         } else {
@@ -177,5 +178,7 @@ boutonValidation.addEventListener("click", async function (event) {
         console.error("Erreur lors de l'envoi du projet", error);
         alert("Une erreur est survenue. Veuillez réessayer.");
     }
-})
+});
+
+
 
