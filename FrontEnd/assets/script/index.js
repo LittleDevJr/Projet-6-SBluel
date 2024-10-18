@@ -3,11 +3,13 @@ const token = localStorage.getItem('authToken');
 const login = document.getElementById('login');
 const filtre = document.querySelector(".boutonFiltre");
 const modifier = document.querySelector(".modifier");
+const editionMode = document.querySelector(".editionMode");
 
 if (token) {
     login.innerHTML = 'logout';
     filtre.style.display = 'none';
     modifier.style.display = 'flex';
+    editionMode.style.display = "flex";
 
 } else {
     login.innerHTML = "login";
@@ -21,6 +23,7 @@ login.addEventListener("click", () => {
         login.innerHTML = "login";
         filtre.style.display = 'block';
         modifier.style.display = 'none';
+        editionMode.style.display = "none";
     }
 });
 
